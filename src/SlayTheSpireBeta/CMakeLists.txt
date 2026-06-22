@@ -11,8 +11,8 @@ qt_add_executable(SlayTheSpireBeta
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    Enemy.h
-    Enemy.cpp
+    enemy.h
+    enemy.cpp
     player.h
     player.cpp
 )

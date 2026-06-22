@@ -1,18 +1,17 @@
 #pragma once
 
-class Enemy;
+class Player;
 
-class Player
-{
+class Enemy {
 private:
     int hp;
     int block = 0;
     int baseAttack;
 
 public:
-    Player();
-    Player(int h, int ba);
-    ~Player();
+    Enemy();
+    Enemy(int h, int ba);
+    ~Enemy();
 
     int getHp() const;
     int getBlock() const;
@@ -21,10 +20,13 @@ public:
 
     int damageCalc() const;
 
-    void attack(Enemy& enemy);
-    void addBlock();
-    void takeDamage(int dmg);
+    void attack(Player& p);
+    void addBlock(const int& b);
+    void takeDamage(int damage);
 
     bool isDead() const;
     void resetBlock();
+
+
+
 };

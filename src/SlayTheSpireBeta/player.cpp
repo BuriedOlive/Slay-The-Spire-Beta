@@ -1,15 +1,37 @@
 #include "player.h"
 #include "enemy.h"
+#include <cstdlib>
 
 Player::Player()
 {
     hp = 50;
     block = 0;
-    damage = 6;
+    baseAttack = 6;
+}
+
+Player::Player(int h, int ba): hp(h), baseAttack(ba)
+{
+
+}
+
+Player::~Player()
+{
+
 }
 int Player::getHp() const
 {
     return hp;
+}
+
+int Player::damageCalc() const
+{
+    int currentDamage = baseAttack;
+
+    currentDamage += rand()%5 - 2;
+
+    if (currentDamage < 0) currentDamage = 0;
+
+    return currentDamage;
 }
 void Player::takeDamage(int dmg)
 {
@@ -28,9 +50,9 @@ void Player::takeDamage(int dmg)
 }
 void Player::attack(Enemy& enemy)
 {
-   //enemy.takeDamage(damage);
+    enemy.takeDamage(damageCalc());
 }
-void Player::defend()
+void Player::addBlock()
 {
     block += 5;
 }
