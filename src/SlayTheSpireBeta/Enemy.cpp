@@ -41,5 +41,27 @@ int Enemy::damageCalc() const
     return currentDamage;
 }
 
+void Enemy::takeDamage(int damage)
+{
+    if (damage > block) {
+        damage -= block;
+        block = 0;
+        hp -= damage;
+    } else {
+        block -= damage;
+    }
+}
+
+void Enemy::addBlock(const int &b)
+{
+    block += b;
+}
+
+bool Enemy::isDead() const
+{
+    if (hp <= 0) return true;
+    else return false;
+}
+
 
 

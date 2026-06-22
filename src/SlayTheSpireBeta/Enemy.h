@@ -21,8 +21,8 @@ public:
     int damageCalc() const;
 
 
-    void takeDamage(const int& damage);
-    void addBlock(const int& damage);
+    void takeDamage(int damage);
+    void addBlock(const int& b);
     // void attack(const int& damage, Player& p);
     bool isDead() const;
 
