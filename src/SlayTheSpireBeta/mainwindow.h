@@ -17,6 +17,15 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+private slots:
+
+
+    void on_attackButton_clicked();
+
+    void on_defendButton_clicked();
+
+    void on_endTurnButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
