@@ -18,7 +18,7 @@ public:
     int getMaxHp() const;
     int getBlock() const;
 
-    int& damageCalc() const;
+    int damageCalc() const;
 
 
     void takeDamage(const int& damage);
