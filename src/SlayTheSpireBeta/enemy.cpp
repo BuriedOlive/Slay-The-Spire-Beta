@@ -42,7 +42,7 @@ int Enemy::damageCalc() const
 
 void Enemy::attack(Player &p)
 {
-
+    p.takeDamage(damageCalc());
 }
 
 void Enemy::takeDamage(int damage)
@@ -63,8 +63,12 @@ void Enemy::addBlock(const int &b)
 
 bool Enemy::isDead() const
 {
-    if (hp <= 0) return true;
-    else return false;
+    return (hp <= 0);
+}
+
+void Enemy::resetBlock()
+{
+    block = 0;
 }
 
 
