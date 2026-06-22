@@ -6,13 +6,18 @@ private:
     int hp;
     int maxHp;
     int block = 0;
+    int baseAttack;
 
 public:
+    Enemy(int h);
+    ~Enemy();
 
     void takeDamage(int damage);
     void addBlock(int damage);
     // void attack(int damage, Player& p);
-    bool isAlive();
+    bool isDead();
+
+
 };
 
 
