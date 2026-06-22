@@ -13,6 +13,8 @@ qt_add_executable(SlayTheSpireBeta
     mainwindow.ui
     Enemy.h
     Enemy.cpp
+    player.h
+    player.cpp
 )
 
 target_link_libraries(SlayTheSpireBeta
