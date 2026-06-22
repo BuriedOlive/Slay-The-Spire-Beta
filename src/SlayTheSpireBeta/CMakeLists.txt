@@ -15,6 +15,7 @@ qt_add_executable(SlayTheSpireBeta
     Enemy.cpp
     player.h
     player.cpp
+    battlemanager.h battlemanager.cpp
 )
 
 target_link_libraries(SlayTheSpireBeta
