@@ -1,7 +1,16 @@
-#include "Enemy.h"
-#include <cstdlib>
+#include "enemy.h"
 
-Enemy::Enemy(int h, int ba) : maxHp(h), hp(h), baseAttack(ba) {
+#include <cstdlib>
+#include "player.h"
+
+Enemy::Enemy()
+{
+    hp = 50;
+    block = 0;
+    baseAttack = 6;
+}
+
+Enemy::Enemy(int h, int ba) : hp(h), baseAttack(ba) {
 
 }
 
@@ -10,19 +19,9 @@ Enemy::~Enemy()
 
 }
 
-void Enemy::setBlock(int &newBlock)
-{
-    block = newBlock;
-}
-
 int Enemy::getHp() const
 {
     return hp;
-}
-
-int Enemy::getMaxHp() const
-{
-    return maxHp;
 }
 
 int Enemy::getBlock() const
@@ -39,6 +38,11 @@ int Enemy::damageCalc() const
     if (currentDamage < 0) currentDamage = 0;
 
     return currentDamage;
+}
+
+void Enemy::attack(Player &p)
+{
+
 }
 
 void Enemy::takeDamage(int damage)
