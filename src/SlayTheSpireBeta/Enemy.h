@@ -9,13 +9,23 @@ private:
     int baseAttack;
 
 public:
-    Enemy(int h);
+    Enemy(int h, int ba);
     ~Enemy();
 
-    void takeDamage(int damage);
-    void addBlock(int damage);
-    // void attack(int damage, Player& p);
-    bool isDead();
+    void setBlock(int& newBlock);
+
+    int getHp() const;
+    int getMaxHp() const;
+    int getBlock() const;
+
+    int& damageCalc() const;
+
+
+    void takeDamage(const int& damage);
+    void addBlock(const int& damage);
+    // void attack(const int& damage, Player& p);
+    bool isDead() const;
+
 
 
 };
