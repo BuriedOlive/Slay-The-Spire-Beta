@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "battlemanager.h"
+
+class BattleManager;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,7 +17,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr, BattleManager b);
     ~MainWindow() override;
 
 private slots:
@@ -28,5 +31,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    BattleManager bm;
 };
 #endif // MAINWINDOW_H
