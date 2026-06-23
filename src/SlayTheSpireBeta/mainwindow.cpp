@@ -4,7 +4,7 @@
 
 #include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent, BattleManager b) : bm(b)
+MainWindow::MainWindow(BattleManager b, QWidget *parent) : bm(b)
     , QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -15,8 +15,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 
 void MainWindow::on_attackButton_clicked()
 {
