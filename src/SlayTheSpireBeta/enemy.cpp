@@ -56,9 +56,9 @@ void Enemy::takeDamage(int damage)
     }
 }
 
-void Enemy::addBlock(const int &b)
+void Enemy::addBlock()
 {
-    block += b;
+    block += (baseAttack * 3) / 4;
 }
 
 bool Enemy::isDead() const

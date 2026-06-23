@@ -1,8 +1,7 @@
 #pragma once
 
-class Player;
-
-class Enemy;
+#include "player.h"
+#include "enemy.h"
 
 enum class BattleStatus {
     PLAYERTURN,
@@ -15,19 +14,19 @@ class BattleManager
 {
 private:
     BattleStatus status;
+    Player player;
+    Enemy enemy;
 
 public:
-    BattleManager();
-    ~BattleManager();
+    BattleManager(Player p, Enemy e);
+    ~BattleManager() = default;
 
-    void playerAttack(Player& player, Enemy& enemy);
-    void playerDefend(Player& player, Enemy& enemy);
+    void playerAttack();
+    void playerDefend();
 
-    void enemyTurn(Player& player, Enemy& enemy);
+    void enemyTurn();
 
-    void checkStatus(const Player& player, const Enemy& enemy);
-
-
+    void checkStatus();
 
 };
 
