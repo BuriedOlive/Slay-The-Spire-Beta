@@ -5,7 +5,7 @@
 
 Enemy::Enemy()
 {
-    hp = 50;
+    hp = 70;
     block = 0;
     baseAttack = 6;
 }
