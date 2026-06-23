@@ -2,7 +2,15 @@
 
 #include <cstdlib>
 
-BattleManager::BattleManager(Player p, Enemy e) : status(BattleStatus::PLAYERTURN), player(p), enemy(e)
+bool BattleManager::isGameOver() const
+{
+    return status == BattleStatus::PLAYERWIN ||
+           status == BattleStatus::PLAYERLOSE;
+}
+BattleManager::BattleManager(Player p, Enemy e)
+    : status(BattleStatus::PLAYERTURN),
+    player(p),
+    enemy(e)
 {
 }
 
@@ -18,41 +26,81 @@ Enemy BattleManager::getEnemy() const
 
 void BattleManager::playerAttack()
 {
+    if (status != BattleStatus::PLAYERTURN)
+        return;
+
     player.attack(enemy);
-    status = BattleStatus::ENEMYTURN;
-    enemy.resetBlock();
+
+    checkStatus();
+
+
+        status = BattleStatus::ENEMYTURN;
+
+    if (enemy.isDead())
+    status = BattleStatus::PLAYERWIN;
+
+
 }
 
 void BattleManager::playerDefend()
 {
+    if (status != BattleStatus::PLAYERTURN)
+        return;
+
     player.addBlock();
-    status = BattleStatus::ENEMYTURN;
-    enemy.resetBlock();
+
+    checkStatus();
+
+    if (status == BattleStatus::PLAYERTURN)
+    {
+        status = BattleStatus::ENEMYTURN;
+        enemy.resetBlock();
+    }
 }
 
 void BattleManager::enemyTurn()
 {
 
-    if (rand() % 3) {
+
+    int action = rand() % 3;
+
+    if (action < 2)
+    {
         enemy.attack(player);
-    } else {
+    }
+    else
+    {
         enemy.addBlock();
     }
 
-    status = BattleStatus::PLAYERTURN;
+    checkStatus();
 
-    player.resetBlock();
+        //player.resetBlock();
+        status = BattleStatus::PLAYERTURN;
+
+    if (player.isDead())
+            status = BattleStatus::PLAYERLOSE;
+
 }
 
 void BattleManager::checkStatus()
 {
-    if (player.getHp() <= 0) {
+    if (player.getHp() <= 0)
+    {
         status = BattleStatus::PLAYERLOSE;
-
-    } else if (enemy.getHp() <= 0) {
+    }
+    else if (enemy.getHp() <= 0)
+    {
         status = BattleStatus::PLAYERWIN;
     }
-
 }
 
-
+void BattleManager::startBattle()
+{
+    // bool playerHasPlayed=false;
+    // while (status!=BattleStatus::PLAYERWIN && status !=BattleStatus::PLAYERLOSE)
+    // {
+    //     if (status==BattleStatus::ENEMYTURN)
+    //         enemyTurn();
+    // }
+}
