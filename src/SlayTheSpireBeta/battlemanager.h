@@ -21,6 +21,9 @@ public:
     BattleManager(Player p, Enemy e);
     ~BattleManager() = default;
 
+    Player getPlayer() const;
+    Enemy getEnemy() const;
+
     void playerAttack();
     void playerDefend();
 

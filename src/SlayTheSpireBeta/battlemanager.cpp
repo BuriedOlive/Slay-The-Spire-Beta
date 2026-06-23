@@ -5,6 +5,16 @@ BattleManager::BattleManager(Player p, Enemy e) : status(BattleStatus::PLAYERTUR
 {
 }
 
+Player BattleManager::getPlayer() const
+{
+    return player;
+}
+
+Enemy BattleManager::getEnemy() const
+{
+    return enemy;
+}
+
 void BattleManager::playerAttack()
 {
     player.attack(enemy);
