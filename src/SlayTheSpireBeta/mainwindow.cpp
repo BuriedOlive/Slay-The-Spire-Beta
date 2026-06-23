@@ -4,8 +4,8 @@
 
 #include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent, BattleManager b) : bm(b)
+    , QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -20,15 +20,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_attackButton_clicked()
 {
-    ui->combatLog->appendPlainText( "Player attacked for 6 damage");
+    bm.playerAttack();
+
+
+    // ui->combatLog->appendPlainText( "Player attacked for 6 damage");
     ui->enemyHpLabel->setText(
-        "Enemy HP: 44");
+        "Enemy HP: " + QString::number(bm.getEnemy().getHp()) );
 }
 
 
 void MainWindow::on_defendButton_clicked()
 {
+    bm.playerDefend();
 
+    ui->playerBlockLabel->setText(
+        "Enemy Block: " + QString::number(bm.getEnemy().getBlock()) );
 }
 
 

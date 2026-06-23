@@ -21,12 +21,10 @@ public:
     int damageCalc() const;
 
     void attack(Player& p);
-    void addBlock(const int& b);
+    void addBlock();
     void takeDamage(int damage);
 
     bool isDead() const;
     void resetBlock();
-
-
 
 };
