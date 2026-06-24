@@ -5,7 +5,7 @@
 
 Enemy::Enemy()
 {
-    hp = 50;
+    hp = 70;
     block = 0;
     baseAttack = 6;
 }
@@ -47,13 +47,11 @@ void Enemy::attack(Player &p)
 
 void Enemy::takeDamage(int damage)
 {
-    if (damage > block) {
-        damage -= block;
-        block = 0;
-        hp -= damage;
-    } else {
-        block -= damage;
-    }
+    int effectiveDmg= damage-block;
+    block-=damage;
+    if (block<0)
+        block=0;
+    hp-=effectiveDmg;
 }
 
 void Enemy::addBlock()

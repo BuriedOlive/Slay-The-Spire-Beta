@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-#ifndef BATTLEMANAGER_H
-#define BATTLEMANAGER_H
 
-class battlemanager
-{
-public:
-    battlemanager();
-};
-
-#endif // BATTLEMANAGER_H
-=======
 #pragma once
 
 #include "player.h"
@@ -29,7 +18,11 @@ private:
     Player player;
     Enemy enemy;
 
+
+
 public:
+    bool isGameOver() const;
+
     BattleManager(Player p, Enemy e);
     ~BattleManager() = default;
 
@@ -43,7 +36,12 @@ public:
 
     void checkStatus();
 
+    void startBattle();
+
+    BattleStatus getStatus(){return status;}
+
+
 };
 
 
->>>>>>> f90977e31471f3f1156294f8c9a89d2abb668045
+

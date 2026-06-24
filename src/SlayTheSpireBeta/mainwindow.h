@@ -22,6 +22,7 @@ public:
 
 private slots:
 
+    void endGame();
 
     void on_attackButton_clicked();
 

@@ -50,6 +50,7 @@ void Player::takeDamage(int dmg)
 }
 void Player::attack(Enemy& enemy)
 {
+
     enemy.takeDamage(damageCalc());
 }
 void Player::addBlock()
@@ -63,4 +64,9 @@ bool Player::isDead() const
 void Player::resetBlock()
 {
     block = 0;
+}
+
+int Player::getBlock() const
+{
+    return block;
 }
